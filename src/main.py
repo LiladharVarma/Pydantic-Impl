@@ -87,3 +87,36 @@ from typing import Literal
 log_level: Literal["debug", "info", "warning", "error"] = "info"
 priority: Literal["low", "medium", "high"] = "medium"
 status: Literal["pending", "approved", "rejected"] = "pending"
+
+
+# common patterns 
+from typing import Optional, Literal
+
+# Required string
+name: str
+
+# Optional string (can be None)
+nickname: str | None = None
+
+# String with default
+country: str = "USA"
+
+# List of items
+items: list[str] = []
+
+# Dictionary
+metadata: dict[str, str] = {}
+
+# Specific allowed values
+role: Literal["admin", "user", "guest"] = "user"
+
+
+
+# Type hints don't validate
+# Remember: Python ignores type hints. This code runs without error:
+
+age: int = "not a number"
+prices: list[float] = "definitely not a list"
+# Type hints are just hints. They don't enforce anything.
+
+# This is where Pydantic comes in. Pydantic reads your type hints and actually validates data against them.
